@@ -70,6 +70,6 @@ export const externalSupervisors: Supervisor[] = [
   {
     name: 'Prof. A.M. Attygalla',
     dept: 'Oral & Maxillofacial Surgery, Faculty of Dental Sciences',
-    url: 'https://dental.pdn.ac.lk/Oral%20Surgery/dr.attygala.php',
+    url: 'https://dental.pdn.ac.lk/portfolio/prof-am-attygalla/',
   },
 ]
