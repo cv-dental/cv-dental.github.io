@@ -9,15 +9,15 @@ const cases: Case[] = [
   {
     id: 'healthy',
     label: 'Jaw & teeth',
-    before: { src: '/img/scan-healthy-raw.webp', w: 1246, h: 768, alt: 'Raw 3D CT rendering of a lower jaw with teeth' },
-    after: { src: '/img/scan-healthy-ai.webp', w: 1246, h: 768, alt: 'The same jaw after segmentation: bone in green, teeth in yellow' },
+    before: { src: '/img/scan-healthy-raw.webp', w: 1232, h: 760, alt: 'Raw 3D CT rendering of a lower jaw with teeth' },
+    after: { src: '/img/scan-healthy-ai.webp', w: 1232, h: 760, alt: 'The same jaw after segmentation: bone in green, teeth in yellow' },
     lesion: false,
   },
   {
     id: 'tumour',
     label: 'Jaw with a tumour',
-    before: { src: '/img/scan-tumour-raw.webp', w: 1170, h: 694, alt: 'Raw 3D CT rendering of a lower jaw affected by a tumour' },
-    after: { src: '/img/scan-tumour-ai.webp', w: 1170, h: 694, alt: 'The same jaw after segmentation, with the tumour highlighted in orange' },
+    before: { src: '/img/scan-tumour-raw.webp', w: 1280, h: 754, alt: 'Raw 3D CT rendering of a lower jaw affected by a tumour' },
+    after: { src: '/img/scan-tumour-ai.webp', w: 1280, h: 754, alt: 'The same jaw after segmentation, with the tumour highlighted in orange' },
     lesion: true,
   },
 ]
