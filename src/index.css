@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-soft: var(--bg-soft);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-gold: var(--gold);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --bg: #f7f8fb;
+  --bg-soft: #eef1f6;
+  --fg: #0b1220;
+  --muted: #526077;
+  --card: #ffffff;
+  --line: #dfe4ec;
+  --accent: #0d9488;
+  --accent-fg: #ffffff;
+  --gold: #b45309;
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #070b14;
+  --bg-soft: #0b111d;
+  --fg: #e7ecf3;
+  --muted: #94a3b8;
+  --card: #0f1624;
+  --line: #1c2536;
+  --accent: #2dd4bf;
+  --accent-fg: #04201c;
+  --gold: #fbbf24;
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 4.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+    text-wrap: balance;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent rounded-md;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* Faint engineering grid used behind dark sections */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
