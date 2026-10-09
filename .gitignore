@@ -1,0 +1,25 @@
+# Safety net: source material and working files never belong in this repo
+*.pptx
+*.ppt
+*.potx
+*.key
+*.pdf
+site-working/
+working/
+team-photos/
+poster-assets/
+extracted/
+*.psd
+*.blend
+*.stl
+*.nii
+*.nii.gz
+*.nrrd
+*.dcm
+
+# OS / editor clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

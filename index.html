@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Computer Vision for Oral &amp; Maxillofacial Surgery · Group 16</title>
+  <meta name="description" content="AI-assisted 3D planning for jaw tumour surgery. A final-year student project by Group 16, Department of Electrical &amp; Electronic Engineering, University of Peradeniya.">
+  <meta name="theme-color" content="#0B2545">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://cv-dental.github.io/">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cv-dental.github.io/">
+  <meta property="og:title" content="Computer Vision for Oral &amp; Maxillofacial Surgical Applications">
+  <meta property="og:description" content="AI-assisted 3D planning for jaw tumour surgery. Meet the team behind it.">
+  <meta property="og:image" content="https://cv-dental.github.io/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Source+Sans+3:wght@400;600&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script>
+    // Flag JS for progressive enhancement and apply a saved theme before first paint.
+    document.documentElement.classList.add('js');
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.22.69.83.57A12 12 0 0 0 12 .3"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm-1 1 9 7 9-7"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Main">
+      <a class="brand" href="#top" aria-label="Group 16, back to top">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 9c0 9 4.5 16 11 16s11-7 11-16" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="5" cy="7" r="2.6" fill="#E0A526"/><circle cx="27" cy="7" r="2.6" fill="#E0A526"/></svg>
+        <span>Group&nbsp;16</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#problem">Problem</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#demo">Demo</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" type="button" aria-label="Switch colour theme">
+        <svg class="icon icon-sun"><use href="#i-sun"/></svg>
+        <svg class="icon icon-moon"><use href="#i-moon"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- 1. HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <canvas class="hero-canvas" aria-hidden="true"></canvas>
+      <div class="container hero-inner">
+        <p class="eyebrow">Final Year Project · Group 16</p>
+        <h1 id="hero-title">Computer Vision for Oral &amp;&nbsp;Maxillofacial Surgical Applications</h1>
+        <p class="tagline">AI-assisted 3D planning for jaw tumour surgery</p>
+        <p class="affiliation">Final Year Project · Group 16 · Department of Electrical &amp; Electronic Engineering, University of Peradeniya</p>
+        <div class="hero-cta">
+          <a class="btn btn-gold" href="#team">Meet the team</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#problem" aria-label="Scroll to the problem"><span></span></a>
+    </section>
+
+    <!-- 2. THE PROBLEM -->
+    <section class="section" id="problem" aria-labelledby="problem-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="kicker">The problem</p>
+          <h2 id="problem-title">Jaw reconstruction is planned slowly, by hand</h2>
+          <p class="lead">When a tumour is removed from the jaw, surgeons rebuild it with bone from elsewhere in the body. Planning that rebuild in 3D is skilled, manual and time-consuming, and patients are often already waiting too long.</p>
+        </header>
+        <ul class="stats" role="list">
+          <li class="stat" data-reveal>
+            <p class="stat-num" data-count="100" data-count2="150" aria-label="100 to 150">100–150</p>
+            <p class="stat-label">jaw tumour surgeries a year in a single surgical unit</p>
+          </li>
+          <li class="stat" data-reveal>
+            <p class="stat-num" data-count="60" data-prefix="~" data-suffix="%">~60%</p>
+            <p class="stat-label">of patients are found at an advanced stage</p>
+          </li>
+          <li class="stat" data-reveal>
+            <p class="stat-num" data-count="1" data-prefix="~" data-unit="month">~1<small>month</small></p>
+            <p class="stat-label">waiting for a CT scan</p>
+          </li>
+          <li class="stat" data-reveal>
+            <p class="stat-num" data-count="1" data-prefix="up to " data-unit="day"><span class="pre">up to </span>1<small>day</small></p>
+            <p class="stat-label">to plan one jaw rebuild by hand</p>
+          </li>
+        </ul>
+        <p class="source">Source: interview with Prof. A.M. Attygalla (2026). Figures are approximate.</p>
+      </div>
+    </section>
+
+    <!-- 3. HOW IT WORKS -->
+    <section class="section section-alt" id="how" aria-labelledby="how-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="kicker">How it works</p>
+          <h2 id="how-title">From scan to surgical plan</h2>
+        </header>
+        <ol class="steps">
+          <li class="step" data-reveal>
+            <span class="step-num" aria-hidden="true">01</span>
+            <h3>CT scan</h3>
+            <p>A routine CT or CBCT scan of the patient's jaw is the starting point.</p>
+          </li>
+          <li class="step" data-reveal>
+            <span class="step-num" aria-hidden="true">02</span>
+            <h3>Segment</h3>
+            <p>AI outlines the bone, teeth and tumour in 3D, automatically.</p>
+          </li>
+          <li class="step" data-reveal>
+            <span class="step-num" aria-hidden="true">03</span>
+            <h3>Surgeon review</h3>
+            <p>The surgeon checks and refines the 3D model. The expert stays in control.</p>
+          </li>
+          <li class="step step-next" data-reveal>
+            <span class="step-num" aria-hidden="true">04</span>
+            <h3>Cutting guide <span class="badge badge-next">Coming next</span></h3>
+            <p>A patient-specific guide to help make the planned cuts precisely in theatre.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 4. SEE IT IN ACTION -->
+    <section class="section" id="demo" aria-labelledby="demo-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="kicker">See it in action</p>
+          <h2 id="demo-title">From raw scan to clear 3D anatomy</h2>
+          <p class="lead">Drag the slider to compare a raw 3D scan with the AI result.</p>
+        </header>
+
+        <div class="compare-wrap" data-reveal>
+          <div class="tabs" role="tablist" aria-label="Choose an example">
+            <button class="tab" role="tab" aria-selected="true" data-case="healthy">Jaw &amp; teeth</button>
+            <button class="tab" role="tab" aria-selected="false" data-case="tumour">Jaw with a tumour</button>
+          </div>
+
+          <figure class="compare" style="--pos:50%">
+            <div class="compare-stage">
+              <img class="compare-before" src="assets/img/scan-healthy-raw.webp" width="1246" height="768" alt="Raw 3D CT rendering of a lower jaw with teeth" loading="lazy" decoding="async">
+              <img class="compare-after" src="assets/img/scan-healthy-ai.webp" width="1246" height="768" alt="The same jaw after AI segmentation: bone in green, teeth in yellow" loading="lazy" decoding="async">
+              <span class="compare-tag tag-before" aria-hidden="true">Raw scan</span>
+              <span class="compare-tag tag-after" aria-hidden="true">AI result</span>
+              <div class="compare-handle" aria-hidden="true"><span></span></div>
+              <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Reveal the AI result. Left shows the AI result, right shows the raw scan.">
+            </div>
+            <figcaption>
+              <ul class="legend" role="list">
+                <li><i class="sw sw-bone"></i>Bone</li>
+                <li><i class="sw sw-teeth"></i>Teeth</li>
+                <li class="legend-lesion" hidden><i class="sw sw-lesion"></i>Tumour</li>
+              </ul>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="demo-grid">
+          <figure class="card ct-card" data-reveal>
+            <img src="assets/img/ct-slice.webp" width="780" height="780" alt="A single CT slice through the lower jaw, with the bone outlined in green and a tumour highlighted in orange" loading="lazy" decoding="async">
+            <figcaption>
+              <h3>Slice by slice</h3>
+              <p>The same outlines on a single CT slice: bone in green, the tumour in orange. Surgeons can check every slice before trusting the 3D model.</p>
+            </figcaption>
+          </figure>
+
+          <div class="card viewer-card" data-reveal>
+            <div class="viewer" data-src="assets/models/jaw.glb">
+              <div class="viewer-placeholder">
+                <svg viewBox="0 0 120 80" aria-hidden="true"><path d="M14 18c0 30 18 50 46 50s46-20 46-50" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 9"/></svg>
+                <p class="ph-strong">Interactive 3D model coming soon</p>
+                <p class="ph">[Placeholder: add assets/models/jaw.glb]</p>
+              </div>
+            </div>
+            <div class="viewer-text">
+              <h3>Explore it in 3D</h3>
+              <p>Rotate and zoom an AI-segmented jaw, just as a surgeon would when planning.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. PROGRESS -->
+    <section class="section section-alt" id="progress" aria-labelledby="progress-title">
+      <div class="container narrow">
+        <header class="section-head" data-reveal>
+          <p class="kicker">Progress</p>
+          <h2 id="progress-title">Where we are</h2>
+        </header>
+        <ul class="progress" role="list">
+          <li class="progress-item is-done" data-reveal>
+            <span class="dot" aria-hidden="true"><svg class="icon"><use href="#i-check"/></svg></span>
+            <span class="progress-name">Jaw &amp; teeth segmentation</span>
+            <span class="badge badge-done">Done</span>
+          </li>
+          <li class="progress-item is-refining" data-reveal>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="progress-name">Tumour &amp; cyst detection</span>
+            <span class="badge badge-refining">Being refined</span>
+          </li>
+          <li class="progress-item is-active" data-reveal>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="progress-name">Local patient data with the Dental Faculty</span>
+            <span class="badge badge-active">In progress</span>
+          </li>
+          <li class="progress-item is-next" data-reveal>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="progress-name">Surgical cutting guides</span>
+            <span class="badge badge-next">Next</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. TEAM -->
+    <section class="section team-section" id="team" aria-labelledby="team-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="kicker">The team</p>
+          <h2 id="team-title">Meet the people behind the project</h2>
+          <p class="lead">Three final-year engineering students, guided by engineers and a maxillofacial surgeon.</p>
+        </header>
+
+        <ul class="team-grid" role="list">
+          <li class="member" data-reveal>
+            <div class="member-photo">
+              <img src="assets/img/team-adams.webp" width="560" height="560" alt="Portrait of S.L. Adams" loading="lazy" decoding="async">
+            </div>
+            <div class="member-body">
+              <h3 class="member-name">S.L. Adams</h3>
+              <p class="member-role"><span class="ph">[Add role]</span></p>
+              <p class="member-bio"><span class="ph">[Add bio: 2–3 lines about background, interests and what you work on in the project.]</span></p>
+              <ul class="tags" role="list" aria-label="Skills">
+                <li class="ph">[Skill]</li><li class="ph">[Skill]</li><li class="ph">[Skill]</li>
+              </ul>
+              <ul class="links" role="list">
+                <li><a class="is-placeholder" href="#" aria-label="S.L. Adams on LinkedIn (link to be added)" title="[Add LinkedIn URL]"><svg class="icon"><use href="#i-linkedin"/></svg></a></li>
+                <li><a href="https://github.com/ShananAdams" target="_blank" rel="noopener" aria-label="S.L. Adams on GitHub"><svg class="icon"><use href="#i-github"/></svg></a></li>
+                <li><a href="mailto:e21016@eng.pdn.ac.lk" aria-label="Email S.L. Adams"><svg class="icon"><use href="#i-mail"/></svg></a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="member" data-reveal>
+            <div class="member-photo">
+              <img src="assets/img/team-ganegoda.webp" width="560" height="560" alt="Portrait of S.K.M.D.T. Ganegoda" loading="lazy" decoding="async">
+            </div>
+            <div class="member-body">
+              <h3 class="member-name">S.K.M.D.T. Ganegoda</h3>
+              <p class="member-role"><span class="ph">[Add role]</span></p>
+              <p class="member-bio"><span class="ph">[Add bio: 2–3 lines about background, interests and what you work on in the project.]</span></p>
+              <ul class="tags" role="list" aria-label="Skills">
+                <li class="ph">[Skill]</li><li class="ph">[Skill]</li><li class="ph">[Skill]</li>
+              </ul>
+              <ul class="links" role="list">
+                <li><a class="is-placeholder" href="#" aria-label="S.K.M.D.T. Ganegoda on LinkedIn (link to be added)" title="[Add LinkedIn URL]"><svg class="icon"><use href="#i-linkedin"/></svg></a></li>
+                <li><a class="is-placeholder" href="#" aria-label="S.K.M.D.T. Ganegoda on GitHub (link to be added)" title="[Add GitHub URL]"><svg class="icon"><use href="#i-github"/></svg></a></li>
+                <li><a href="mailto:e21149@eng.pdn.ac.lk" aria-label="Email S.K.M.D.T. Ganegoda"><svg class="icon"><use href="#i-mail"/></svg></a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="member" data-reveal>
+            <div class="member-photo">
+              <img src="assets/img/team-peterson.webp" width="560" height="560" alt="Portrait of S.D. Peterson" loading="lazy" decoding="async">
+            </div>
+            <div class="member-body">
+              <h3 class="member-name">S.D. Peterson</h3>
+              <p class="member-role"><span class="ph">[Add role]</span></p>
+              <p class="member-bio"><span class="ph">[Add bio: 2–3 lines about background, interests and what you work on in the project.]</span></p>
+              <ul class="tags" role="list" aria-label="Skills">
+                <li class="ph">[Skill]</li><li class="ph">[Skill]</li><li class="ph">[Skill]</li>
+              </ul>
+              <ul class="links" role="list">
+                <li><a class="is-placeholder" href="#" aria-label="S.D. Peterson on LinkedIn (link to be added)" title="[Add LinkedIn URL]"><svg class="icon"><use href="#i-linkedin"/></svg></a></li>
+                <li><a class="is-placeholder" href="#" aria-label="S.D. Peterson on GitHub (link to be added)" title="[Add GitHub URL]"><svg class="icon"><use href="#i-github"/></svg></a></li>
+                <li><a href="mailto:e21303@eng.pdn.ac.lk" aria-label="Email S.D. Peterson"><svg class="icon"><use href="#i-mail"/></svg></a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+
+        <h3 class="sub-head" data-reveal>Supervisors</h3>
+        <ul class="mentor-grid" role="list">
+          <li class="mentor" data-reveal>
+            <p class="mentor-type">Supervisor</p>
+            <h4><a href="https://web2.ee.pdn.ac.lk/people/ParakramaE" target="_blank" rel="noopener">Prof. Parakrama Ekanayake<svg class="icon"><use href="#i-external"/></svg></a></h4>
+            <p>Department of Electrical &amp; Electronic Engineering, Faculty of Engineering, University of Peradeniya</p>
+          </li>
+          <li class="mentor" data-reveal>
+            <p class="mentor-type">Supervisor</p>
+            <h4><a href="https://web2.ee.pdn.ac.lk/people/RoshanG" target="_blank" rel="noopener">Prof. Roshan Godaliyadda<svg class="icon"><use href="#i-external"/></svg></a></h4>
+            <p>Department of Electrical &amp; Electronic Engineering, Faculty of Engineering, University of Peradeniya</p>
+          </li>
+        </ul>
+
+        <h3 class="sub-head" data-reveal>External supervisors</h3>
+        <ul class="mentor-grid mentor-grid-3" role="list">
+          <li class="mentor" data-reveal>
+            <p class="mentor-type">External supervisor</p>
+            <h4><a href="https://dental.pdn.ac.lk/Oral%20Surgery/dr.attygala.php" target="_blank" rel="noopener">Prof. A.M. Attygalla<svg class="icon"><use href="#i-external"/></svg></a></h4>
+            <p>Oral &amp; Maxillofacial Surgery, Faculty of Dental Sciences, University of Peradeniya</p>
+          </li>
+          <li class="mentor" data-reveal>
+            <p class="mentor-type">External supervisor</p>
+            <h4><a href="https://eng.pdn.ac.lk/dmie/staff/DrCDSenanayake.html" target="_blank" rel="noopener">Dr. C.D. Senanayake<svg class="icon"><use href="#i-external"/></svg></a></h4>
+            <p>Department of Manufacturing &amp; Industrial Engineering, Faculty of Engineering, University of Peradeniya</p>
+          </li>
+          <li class="mentor" data-reveal>
+            <p class="mentor-type">External supervisor</p>
+            <h4><a href="https://people.ce.pdn.ac.lk/staff/academic/roshan-ragel/" target="_blank" rel="noopener">Prof. R.G. Ragel<svg class="icon"><use href="#i-external"/></svg></a></h4>
+            <p>Department of Computer Engineering, Faculty of Engineering, University of Peradeniya</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 7. COLLABORATORS -->
+    <section class="section section-alt" id="collaborators" aria-labelledby="collab-title">
+      <div class="container">
+        <header class="section-head" data-reveal>
+          <p class="kicker">Collaborators</p>
+          <h2 id="collab-title">Engineering and dentistry, side by side</h2>
+        </header>
+        <ul class="collab-grid" role="list">
+          <li class="collab" data-reveal>
+            <h3>Faculty of Engineering</h3>
+            <p>University of Peradeniya</p>
+          </li>
+          <li class="collab" data-reveal>
+            <h3>Faculty of Dental Sciences</h3>
+            <p>University of Peradeniya</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 8. CONTACT -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container narrow" data-reveal>
+        <p class="kicker">Get in touch</p>
+        <h2 id="contact-title">Let's build better surgical planning together</h2>
+        <p class="lead">Hospitals, researchers and industry partners: if this work is relevant to you, we would love to hear from you.</p>
+        <a class="btn btn-gold btn-lg" href="mailto:e21016@eng.pdn.ac.lk?subject=Jaw%20surgery%20planning%20project%20(Group%2016)">Contact the team</a>
+        <p class="contact-mail">or email <a href="mailto:e21016@eng.pdn.ac.lk">e21016@eng.pdn.ac.lk</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Group 16. This is an independent student project website and is not an official website of the University of Peradeniya.</p>
+    </div>
+  </footer>
+</body>
+</html>
