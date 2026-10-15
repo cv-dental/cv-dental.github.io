@@ -4,7 +4,7 @@ export const site = {
   title: 'Computer Vision for Oral & Maxillofacial Surgical Applications',
   tagline: 'AI-assisted 3D planning for jaw reconstruction surgery',
   affiliation: 'Department of Electrical & Electronic Engineering · University of Peradeniya',
-  email: 'e21016@eng.pdn.ac.lk',
+  email: 'shananladams@gmail.com',
 }
 
 export const overview = [
