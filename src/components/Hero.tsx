@@ -1,21 +1,21 @@
 import { motion } from 'motion/react'
 import { ArrowDown, ArrowRight } from 'lucide-react'
-import JawCanvas from './JawCanvas'
+import HeroVideo from './HeroVideo'
 import { site } from '../content'
 
 const ease = [0.2, 0.7, 0.2, 1] as const
 
 export default function Hero() {
   return (
-    <section id="top" className="relative isolate flex min-h-svh items-end overflow-hidden bg-[#070b14] pb-20 pt-56 text-white md:items-center md:pb-24 md:pt-28">
+    <section id="top" className="relative isolate flex min-h-svh items-end overflow-hidden bg-[#070b14] pb-20 pt-[19rem] text-white sm:pt-[27rem] lg:items-center lg:pb-24 lg:pt-28">
       {/* glow + grid backdrop */}
       <div className="bg-grid absolute inset-0 -z-20 [mask-image:radial-gradient(ellipse_at_70%_45%,black_20%,transparent_75%)]" />
       <div className="absolute -right-40 top-1/4 -z-20 h-[36rem] w-[36rem] rounded-full bg-teal-500/20 blur-[120px]" />
       <div className="absolute -left-40 bottom-0 -z-20 h-[28rem] w-[28rem] rounded-full bg-amber-500/10 blur-[120px]" />
-      <JawCanvas className="absolute inset-0 -z-10 h-full w-full" />
+      <HeroVideo className="absolute left-1/2 top-3 -z-10 w-[min(94vw,380px)] -translate-x-1/2 sm:w-[540px] lg:left-auto lg:right-[-2%] lg:top-1/2 lg:w-[min(56vw,820px)] lg:translate-x-0 lg:-translate-y-1/2" />
 
       <div className="mx-auto w-full max-w-6xl px-5">
-        <div className="max-w-2xl md:max-w-[56%]">
+        <div className="max-w-2xl lg:max-w-[56%]">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
