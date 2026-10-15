@@ -33,12 +33,13 @@ export const outputs = [
   'A prototype for identifying and localizing regions of mandibular defect from imaging data.',
 ]
 
-export type Student = { name: string; photo: string }
+export type Student = { name: string; photo: string; note?: string }
 
 export const students: Student[] = [
   { name: 'S.L. Adams', photo: '/img/team-adams.webp' },
   { name: 'S.K.M.D.T. Ganegoda', photo: '/img/team-ganegoda.webp' },
   { name: 'S.D. Peterson', photo: '/img/team-peterson.webp' },
+  { name: 'A. Asfak Ahamed', photo: '/img/team-asfak.webp', note: 'MARC – Multidisciplinary AI Research Center' },
 ]
 
 export type Supervisor = { name: string; dept: string; url: string }

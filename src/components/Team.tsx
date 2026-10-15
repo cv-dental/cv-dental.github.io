@@ -28,7 +28,7 @@ export default function Team() {
       <div className="mx-auto max-w-6xl px-5">
         <SectionHeading kicker="Team & supervisors" title="The team" />
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {students.map((s, i) => (
             <Reveal key={s.name} delay={i * 0.08}>
               <motion.figure
@@ -48,7 +48,8 @@ export default function Team() {
                   />
                 </div>
                 <figcaption className="absolute inset-x-3 bottom-3 rounded-2xl border border-white/15 bg-black/45 px-5 py-4 text-white backdrop-blur-md">
-                  <p className="font-display text-xl font-semibold">{s.name}</p>
+                  <p className="font-display text-lg font-semibold leading-snug">{s.name}</p>
+                  {s.note && <p className="mt-0.5 text-xs leading-snug text-white/75">{s.note}</p>}
                 </figcaption>
                 <span className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-teal-300 to-amber-300 transition-transform duration-500 group-hover:scale-x-100" />
               </motion.figure>
